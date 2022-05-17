@@ -327,6 +327,10 @@ public class Calculator extends JFrame{
 	
 	private void clickClear() {
 		fieldInput1.setText("");
+		hasDot = true;
+		input1 = "";
+		input2 = "";
+		operator = "";
 	}
 	
 	
