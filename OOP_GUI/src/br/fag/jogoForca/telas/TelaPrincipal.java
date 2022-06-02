@@ -15,21 +15,36 @@ import java.awt.Canvas;
 import javax.swing.JButton;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import java.awt.event.ActionListener;
+import java.util.Iterator;
+import java.awt.event.ActionEvent;
 
 @SuppressWarnings("serial")
 public class TelaPrincipal extends JFrame {
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JTextField textField_5;
-	private JTextField textField_6;
-	private JTextField textField_7;
-	private JTextField textField_8;
-	private JTextField textField_9;
-	private JTextField textField_10;
+	
+	JPanel panelPalavra;
+	private JTextField field_1;
+	private JTextField field_2;
+	private JTextField field_3;
+	private JTextField field_4;
+	private JTextField field_5;
+	private JTextField field_6;
+	private JTextField field_7;
+	private JTextField field_8;
+	private JTextField field_9;
+	private JTextField field_10;
+	private JTextField field_11;
+	private String palavraForca;
+	
 	public TelaPrincipal() {
+		
+		atribuirPalavra();
+		initComponents();
+		determinarTamanho();
+		
+	}
+
+	private void initComponents() {
 		setResizable(false);
 		getContentPane().setLayout(new BorderLayout(0, 0));
 		
@@ -37,64 +52,76 @@ public class TelaPrincipal extends JFrame {
 		getContentPane().add(panelLetras, BorderLayout.SOUTH);
 		panelLetras.setLayout(new BorderLayout(0, 0));
 		
-		JPanel panelPalavra = new JPanel();
+		panelPalavra = new JPanel();
 		panelLetras.add(panelPalavra, BorderLayout.NORTH);
 		
-		textField = new JTextField();
-		textField.setEditable(false);
-		panelPalavra.add(textField);
-		textField.setColumns(2);
+		field_1 = new JTextField();
+		field_1.setEditable(false);
+		field_1.setVisible(false);
+		panelPalavra.add(field_1);
+		field_1.setColumns(2);
 		
-		textField_1 = new JTextField();
-		textField_1.setEditable(false);
-		panelPalavra.add(textField_1);
-		textField_1.setColumns(2);
+		field_2 = new JTextField();
+		field_2.setEditable(false);
+		field_2.setVisible(false);
+		panelPalavra.add(field_2);
+		field_2.setColumns(2);
 		
-		textField_2 = new JTextField();
-		textField_2.setEditable(false);
-		panelPalavra.add(textField_2);
-		textField_2.setColumns(2);
+		field_3 = new JTextField();
+		field_3.setEditable(false);
+		field_3.setVisible(false);
+		panelPalavra.add(field_3);
+		field_3.setColumns(2);
 		
-		textField_3 = new JTextField();
-		textField_3.setEditable(false);
-		panelPalavra.add(textField_3);
-		textField_3.setColumns(2);
+		field_4 = new JTextField();
+		field_4.setEditable(false);
+		field_4.setVisible(false);
+		panelPalavra.add(field_4);
+		field_4.setColumns(2);
 		
-		textField_4 = new JTextField();
-		textField_4.setEditable(false);
-		panelPalavra.add(textField_4);
-		textField_4.setColumns(2);
+		field_5 = new JTextField();
+		field_5.setEditable(false);
+		field_5.setVisible(false);
+		panelPalavra.add(field_5);
+		field_5.setColumns(2);
 		
-		textField_5 = new JTextField();
-		textField_5.setEditable(false);
-		panelPalavra.add(textField_5);
-		textField_5.setColumns(2);
+		field_6 = new JTextField();
+		field_6.setEditable(false);
+		field_6.setVisible(false);
+		panelPalavra.add(field_6);
+		field_6.setColumns(2);
 		
-		textField_6 = new JTextField();
-		textField_6.setEditable(false);
-		panelPalavra.add(textField_6);
-		textField_6.setColumns(2);
+		field_7 = new JTextField();
+		field_7.setEditable(false);
+		field_7.setVisible(false);
+		panelPalavra.add(field_7);
+		field_7.setColumns(2);
 		
-		textField_7 = new JTextField();
-		textField_7.setEditable(false);
-		panelPalavra.add(textField_7);
-		textField_7.setColumns(2);
+		field_8 = new JTextField();
+		field_8.setEditable(false);
+		field_8.setVisible(false);
+		panelPalavra.add(field_8);
+		field_8.setColumns(2);
 		
-		textField_8 = new JTextField();
-		textField_8.setEditable(false);
-		panelPalavra.add(textField_8);
-		textField_8.setColumns(2);
+		field_9 = new JTextField();
+		field_9.setEditable(false);
+		field_9.setVisible(false);
+		panelPalavra.add(field_9);
+		field_9.setColumns(2);
 		
-		textField_9 = new JTextField();
-		textField_9.setEditable(false);
-		panelPalavra.add(textField_9);
-		textField_9.setColumns(2);
+		field_10 = new JTextField();
+		field_10.setEditable(false);
+		field_10.setVisible(false);
+		panelPalavra.add(field_10);
+		field_10.setColumns(2);
 		
-		textField_10 = new JTextField();
-		textField_10.setEditable(false);
-		panelPalavra.add(textField_10);
-		textField_10.setColumns(2);
+		field_11 = new JTextField();
+		field_11.setEditable(false);
+		field_11.setVisible(false);
+		panelPalavra.add(field_11);
+		field_11.setColumns(2);
 		
+				
 		JPanel panelTeclado = new JPanel();
 		panelLetras.add(panelTeclado);
 		panelTeclado.setLayout(new VerticalFlowLayout());
@@ -104,87 +131,193 @@ public class TelaPrincipal extends JFrame {
 		panelTeclado.add(panelAI);
 		
 		JButton btnA = new JButton("A");
+		btnA.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String letra = btnA.getText();
+				clickLetra(letra);
+			}
+		});
 		panelAI.add(btnA);
 		
 		JButton btnB = new JButton("B");
+		btnB.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		panelAI.add(btnB);
 		
 		JButton btnC = new JButton("C");
+		btnC.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		panelAI.add(btnC);
 		
 		JButton btnD = new JButton("D");
+		btnD.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		panelAI.add(btnD);
 		
 		JButton btnE = new JButton("E");
+		btnE.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		panelAI.add(btnE);
 		
 		JButton btnF = new JButton("F");
+		btnF.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		panelAI.add(btnF);
 		
 		JButton btnG = new JButton("G");
+		btnG.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		panelAI.add(btnG);
 		
 		JButton btnH = new JButton("H");
+		btnH.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		panelAI.add(btnH);
 		
 		JButton btnI = new JButton("I");
+		btnI.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		panelAI.add(btnI);
 		
 		JPanel panelIQ = new JPanel();
 		panelTeclado.add(panelIQ);
 		
 		JButton btnJ = new JButton("J");
+		btnJ.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		panelIQ.add(btnJ);
 		
 		JButton btnK = new JButton("K");
+		btnK.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		panelIQ.add(btnK);
 		
 		JButton btnL = new JButton("L");
+		btnL.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		panelIQ.add(btnL);
 		
 		JButton btnM = new JButton("M");
+		btnM.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		panelIQ.add(btnM);
 		
 		JButton btnN = new JButton("N");
+		btnN.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		panelIQ.add(btnN);
 		
 		JButton btnO = new JButton("O");
+		btnO.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		panelIQ.add(btnO);
 		
 		JButton btnP = new JButton("P");
+		btnP.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		panelIQ.add(btnP);
 		
 		JButton btnQ = new JButton("Q");
+		btnQ.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		panelIQ.add(btnQ);
 		
 		JPanel panelRZ = new JPanel();
 		panelTeclado.add(panelRZ);
 		
 		JButton btnR = new JButton("R");
+		btnR.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		panelRZ.add(btnR);
 		
 		JButton btnS = new JButton("S");
+		btnS.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		panelRZ.add(btnS);
 		
 		JButton btnT = new JButton("T");
+		btnT.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		panelRZ.add(btnT);
 		
 		JButton btnU = new JButton("U");
+		btnU.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		panelRZ.add(btnU);
 		
 		JButton btnV = new JButton("V");
+		btnV.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		panelRZ.add(btnV);
 		
 		JButton btnW = new JButton("W");
+		btnW.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		panelRZ.add(btnW);
 		
 		JButton btnX = new JButton("X");
+		btnX.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		panelRZ.add(btnX);
 		
 		JButton btnY = new JButton("Y");
+		btnY.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		panelRZ.add(btnY);
 		
 		JButton btnZ = new JButton("Z");
+		btnZ.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		panelRZ.add(btnZ);
 		
 		JPanel panelNorte = new JPanel();
@@ -229,4 +362,34 @@ public class TelaPrincipal extends JFrame {
 		setSize(800, 600);
 		setVisible(true);
 	}
+
+	private void clickLetra(String letra) {
+		
+		for (int i = 0; i < palavraForca.length(); i++) {
+			if (palavraForca.charAt(i)==(letra.charAt(0))) {
+//				panelPalavra.getComponent(i).;				
+			}
+		}
+				
+	}
+	
+	private void atribuirPalavra() {
+		palavraForca = "Romario";		
+	}
+	
+	private void determinarTamanho() {
+		
+		for (int i = 0; i < palavraForca.length(); i++) {			
+			panelPalavra.getComponent(i).setVisible(true);			
+		}	
+	}
+	
+
+	
+	
+	
+	
+	
+	
+	
 }
