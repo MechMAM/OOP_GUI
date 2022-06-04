@@ -19,7 +19,14 @@ import br.fag.calculadora.gui.VerticalFlowLayout;
 public class TelaPrincipal extends JFrame {
 	
 	private JTextField field_1;
+	private JLabel cabeca;
+	private JLabel tronco;
+	private JLabel pernaEsq;
+	private JLabel pernaDir;
+	private JLabel bracoEsq;
+	private JLabel bracoDir;
 	private String palavraForca;
+	private int contadorErros;
 	
 	public TelaPrincipal() {
 		
@@ -61,6 +68,7 @@ public class TelaPrincipal extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				String letra = btnA.getText();
 				clickLetra(letra);
+				btnA.setEnabled(false);
 			}
 		});
 		panelAI.add(btnA);
@@ -70,6 +78,7 @@ public class TelaPrincipal extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				String letra = btnB.getText();
 				clickLetra(letra);
+				btnB.setEnabled(false);
 			}
 		});
 		panelAI.add(btnB);
@@ -79,6 +88,7 @@ public class TelaPrincipal extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				String letra = btnC.getText();
 				clickLetra(letra);
+				btnC.setEnabled(false);
 			}
 		});
 		panelAI.add(btnC);
@@ -88,6 +98,7 @@ public class TelaPrincipal extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				String letra = btnD.getText();
 				clickLetra(letra);
+				btnD.setEnabled(false);
 			}
 		});
 		panelAI.add(btnD);
@@ -97,6 +108,7 @@ public class TelaPrincipal extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				String letra = btnE.getText();
 				clickLetra(letra);
+				btnE.setEnabled(false);
 			}
 		});
 		panelAI.add(btnE);
@@ -106,6 +118,7 @@ public class TelaPrincipal extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				String letra = btnF.getText();
 				clickLetra(letra);
+				btnF.setEnabled(false);
 			}
 		});
 		panelAI.add(btnF);
@@ -115,6 +128,7 @@ public class TelaPrincipal extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				String letra = btnG.getText();
 				clickLetra(letra);
+				btnG.setEnabled(false);
 			}
 		});
 		panelAI.add(btnG);
@@ -124,6 +138,7 @@ public class TelaPrincipal extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				String letra = btnH.getText();
 				clickLetra(letra);
+				btnH.setEnabled(false);
 			}
 		});
 		panelAI.add(btnH);
@@ -131,8 +146,9 @@ public class TelaPrincipal extends JFrame {
 		JButton btnI = new JButton("I");
 		btnI.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String letra = btnF.getText();
+				String letra = btnI.getText();
 				clickLetra(letra);
+				btnI.setEnabled(false);
 			}
 		});
 		panelAI.add(btnI);
@@ -145,6 +161,7 @@ public class TelaPrincipal extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				String letra = btnJ.getText();
 				clickLetra(letra);
+				btnJ.setEnabled(false);
 			}
 		});
 		panelIQ.add(btnJ);
@@ -154,6 +171,7 @@ public class TelaPrincipal extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				String letra = btnK.getText();
 				clickLetra(letra);
+				btnK.setEnabled(false);
 			}
 		});
 		panelIQ.add(btnK);
@@ -163,6 +181,7 @@ public class TelaPrincipal extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				String letra = btnL.getText();
 				clickLetra(letra);
+				btnL.setEnabled(false);
 			}
 		});
 		panelIQ.add(btnL);
@@ -172,6 +191,7 @@ public class TelaPrincipal extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				String letra = btnM.getText();
 				clickLetra(letra);
+				btnM.setEnabled(false);
 			}
 		});
 		panelIQ.add(btnM);
@@ -181,6 +201,7 @@ public class TelaPrincipal extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				String letra = btnN.getText();
 				clickLetra(letra);
+				btnN.setEnabled(false);
 			}
 		});
 		panelIQ.add(btnN);
@@ -190,6 +211,7 @@ public class TelaPrincipal extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				String letra = btnO.getText();
 				clickLetra(letra);
+				btnO.setEnabled(false);
 			}
 		});
 		panelIQ.add(btnO);
@@ -199,6 +221,7 @@ public class TelaPrincipal extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				String letra = btnP.getText();
 				clickLetra(letra);
+				btnP.setEnabled(false);
 			}
 		});
 		panelIQ.add(btnP);
@@ -208,6 +231,7 @@ public class TelaPrincipal extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				String letra = btnQ.getText();
 				clickLetra(letra);
+				btnQ.setEnabled(false);
 			}
 		});
 		panelIQ.add(btnQ);
@@ -220,6 +244,7 @@ public class TelaPrincipal extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				String letra = btnR.getText();
 				clickLetra(letra);
+				btnR.setEnabled(false);
 			}
 		});
 		panelRZ.add(btnR);
@@ -229,6 +254,7 @@ public class TelaPrincipal extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				String letra = btnS.getText();
 				clickLetra(letra);
+				btnS.setEnabled(false);
 			}
 		});
 		panelRZ.add(btnS);
@@ -238,6 +264,7 @@ public class TelaPrincipal extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				String letra = btnT.getText();
 				clickLetra(letra);
+				btnT.setEnabled(false);
 			}
 		});
 		panelRZ.add(btnT);
@@ -247,6 +274,7 @@ public class TelaPrincipal extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				String letra = btnU.getText();
 				clickLetra(letra);
+				btnU.setEnabled(false);
 			}
 		});
 		panelRZ.add(btnU);
@@ -256,6 +284,7 @@ public class TelaPrincipal extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				String letra = btnV.getText();
 				clickLetra(letra);
+				btnV.setEnabled(false);
 			}
 		});
 		panelRZ.add(btnV);
@@ -265,6 +294,7 @@ public class TelaPrincipal extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				String letra = btnW.getText();
 				clickLetra(letra);
+				btnW.setEnabled(false);
 			}
 		});
 		panelRZ.add(btnW);
@@ -274,6 +304,7 @@ public class TelaPrincipal extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				String letra = btnX.getText();
 				clickLetra(letra);
+				btnX.setEnabled(false);
 			}
 		});
 		panelRZ.add(btnX);
@@ -283,6 +314,7 @@ public class TelaPrincipal extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				String letra = btnY.getText();
 				clickLetra(letra);
+				btnY.setEnabled(false);
 			}
 		});
 		panelRZ.add(btnY);
@@ -292,6 +324,7 @@ public class TelaPrincipal extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				String letra = btnZ.getText();
 				clickLetra(letra);
+				btnZ.setEnabled(false);
 			}
 		});
 		panelRZ.add(btnZ);
@@ -303,35 +336,41 @@ public class TelaPrincipal extends JFrame {
 		getContentPane().add(panelForca, BorderLayout.CENTER);
 		panelForca.setLayout(null);
 		
-		JLabel lblNewLabel_1 = new JLabel("|");
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		lblNewLabel_1.setBounds(249, 157, 15, 37);
-		panelForca.add(lblNewLabel_1);
+		cabeca = new JLabel("O");
+		cabeca.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		cabeca.setBounds(244, 135, 27, 28);
+		panelForca.add(cabeca);
+		cabeca.setVisible(false);
 		
-		JLabel lblNewLabel = new JLabel("O");
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		lblNewLabel.setBounds(244, 135, 27, 28);
-		panelForca.add(lblNewLabel);
+		tronco = new JLabel("|");
+		tronco.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		tronco.setBounds(249, 157, 15, 37);
+		panelForca.add(tronco);
+		tronco.setVisible(false);
 		
-		JLabel lblNewLabel_2 = new JLabel("/");
-		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		lblNewLabel_2.setBounds(244, 190, 15, 28);
-		panelForca.add(lblNewLabel_2);
+		pernaEsq = new JLabel("/");
+		pernaEsq.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		pernaEsq.setBounds(244, 190, 15, 28);
+		panelForca.add(pernaEsq);
+		pernaEsq.setVisible(false);
 		
-		JLabel lblNewLabel_2_1 = new JLabel("\\");
-		lblNewLabel_2_1.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		lblNewLabel_2_1.setBounds(253, 190, 15, 28);
-		panelForca.add(lblNewLabel_2_1);
+		pernaDir = new JLabel("\\");
+		pernaDir.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		pernaDir.setBounds(253, 190, 15, 28);
+		panelForca.add(pernaDir);
+		pernaDir.setVisible(false);
 		
-		JLabel lblNewLabel_2_2 = new JLabel("/");
-		lblNewLabel_2_2.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		lblNewLabel_2_2.setBounds(244, 161, 15, 28);
-		panelForca.add(lblNewLabel_2_2);
+		bracoEsq = new JLabel("/");
+		bracoEsq.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		bracoEsq.setBounds(244, 161, 15, 28);
+		panelForca.add(bracoEsq);
+		bracoEsq.setVisible(false);
 		
-		JLabel lblNewLabel_2_1_1 = new JLabel("\\");
-		lblNewLabel_2_1_1.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		lblNewLabel_2_1_1.setBounds(254, 161, 15, 28);
-		panelForca.add(lblNewLabel_2_1_1);
+		bracoDir = new JLabel("\\");
+		bracoDir.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		bracoDir.setBounds(254, 161, 15, 28);
+		panelForca.add(bracoDir);
+		bracoDir.setVisible(false);
 		
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 //		setLocationRelativeTo(null);
@@ -340,30 +379,103 @@ public class TelaPrincipal extends JFrame {
 	}
 
 	private void clickLetra(String letra) {
-		
+		boolean acertou = false;
+		int letrasFaltam = -1;
 		for (int i = 0; i < palavraForca.length(); i++) {
 			if (palavraForca.charAt(i)==(letra.charAt(0))) {
-				atribuirLetra(i, letra);
+				letrasFaltam = atribuirLetra(i, letra);
+				acertou = true;
 			}
 		}
-				
+		if(!acertou) {
+			contadorErros++;
+			desenharForca(contadorErros);
+		}
+		if (letrasFaltam == 0) {
+			ganhouJogo();
+		}
 	}
 	
-	private void atribuirLetra(int i, String letra) {
-		StringBuilder palavra = new StringBuilder(field_1.getText());
-		int auxiliar = 0;
-		for (int j = 0; j < palavra.length(); j++) {
+	private void ganhouJogo() {
+		Object[] options = { " Continuar Jogando ", " Fechar o jogo " };			
+		int opcao = JOptionPane.showOptionDialog(null, "Você ganhou! Escolha uma opção!", "Tela da vitória",JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE,null, options, options[0]);
+		System.out.println(opcao);		
+		switch (opcao) {
+		case 0:
+			this.dispose();
+			new TelaPrincipal();				
+			break;
+		case 1:
+			this.dispose();
+			break;
+		default:
+			break;
+		}		
+	}
+
+	private void desenharForca(int erros) {
+		
+		switch (erros) {
+		case 1:
+			cabeca.setVisible(true);
+			break;
+		case 2:
+			tronco.setVisible(true);
+			break;
+		case 3:
+			bracoEsq.setVisible(true);
+			break;
+		case 4:
+			bracoDir.setVisible(true);
+			break;
+		case 5:
+			pernaEsq.setVisible(true);
+			break;
+		case 6:
+			pernaDir.setVisible(true);			
+			Object[] options = { " Continuar Jogando ", " Fechar o jogo " };			
+			int opcao = JOptionPane.showOptionDialog(null, "Você perdeu! Escolha uma opção", "Tela da vergonha",JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE,null, options, options[0]);
+			System.out.println(opcao);
 			
-			if (palavra.charAt(j)=='*') {
-				auxiliar++;							
+			switch (opcao) {
+			case 0:
+				this.dispose();
+				new TelaPrincipal();				
+				break;
+			case 1:
+				this.dispose();
+				break;
+			default:
+				break;
 			}
-			if (auxiliar == i-1) {
+			
+			break;
+		default:
+			break;
+		}
+	}
+
+	private int atribuirLetra(int i, String letra) {
+		StringBuilder palavra = new StringBuilder(field_1.getText());
+		int contadorPosicao = 0;
+		int letrasFaltam = 0;
+		boolean alterado = false;
+		for (int j = 0; j < palavra.length(); j++) {			
+			if (palavra.charAt(j)!=' ') {
+				contadorPosicao++;							
+			}			
+			if (contadorPosicao-1 == (i) && !alterado) {
 				palavra.setCharAt(j, letra.charAt(0));
+				alterado = true;
 			}
 		}
+		for (int j = 0; j < palavra.length(); j++) {
+			if (palavra.charAt(j)=='*') {
+				letrasFaltam++;				
+			}			
+		}
 		field_1.setText(palavra.toString());
-		JOptionPane.showMessageDialog(null, letra);
-		
+		return letrasFaltam;
 	}
 
 	private void atribuirPalavra() {
@@ -372,11 +484,11 @@ public class TelaPrincipal extends JFrame {
 	
 	private void determinarTamanho() {
 		
+		String palavra = field_1.getText();
 		for (int i = 0; i < palavraForca.length(); i++) {
-			String palavra = field_1.getText();
-			palavra+=" *  ";
-			field_1.setText(palavra);		
+			palavra+="  *  ";
 		}	
+		field_1.setText(palavra);		
 	}
 	
 
