@@ -1,39 +1,24 @@
 package br.fag.jogoForca.telas;
 
+import java.awt.BorderLayout;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 
 import br.fag.calculadora.gui.VerticalFlowLayout;
-
-import java.awt.BorderLayout;
-import javax.swing.JLabel;
-import java.awt.FlowLayout;
-import java.awt.Rectangle;
-import java.awt.ComponentOrientation;
-import java.awt.Font;
-import java.awt.Canvas;
-import javax.swing.JButton;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
-import java.awt.event.ActionListener;
-import java.util.Iterator;
-import java.awt.event.ActionEvent;
 
 @SuppressWarnings("serial")
 public class TelaPrincipal extends JFrame {
 	
-	JPanel panelPalavra;
 	private JTextField field_1;
-	private JTextField field_2;
-	private JTextField field_3;
-	private JTextField field_4;
-	private JTextField field_5;
-	private JTextField field_6;
-	private JTextField field_7;
-	private JTextField field_8;
-	private JTextField field_9;
-	private JTextField field_10;
-	private JTextField field_11;
 	private String palavraForca;
 	
 	public TelaPrincipal() {
@@ -52,74 +37,15 @@ public class TelaPrincipal extends JFrame {
 		getContentPane().add(panelLetras, BorderLayout.SOUTH);
 		panelLetras.setLayout(new BorderLayout(0, 0));
 		
-		panelPalavra = new JPanel();
+		JPanel panelPalavra = new JPanel();
 		panelLetras.add(panelPalavra, BorderLayout.NORTH);
 		
 		field_1 = new JTextField();
+		field_1.setHorizontalAlignment(SwingConstants.CENTER);
+		field_1.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		field_1.setEditable(false);
-		field_1.setVisible(false);
 		panelPalavra.add(field_1);
-		field_1.setColumns(2);
-		
-		field_2 = new JTextField();
-		field_2.setEditable(false);
-		field_2.setVisible(false);
-		panelPalavra.add(field_2);
-		field_2.setColumns(2);
-		
-		field_3 = new JTextField();
-		field_3.setEditable(false);
-		field_3.setVisible(false);
-		panelPalavra.add(field_3);
-		field_3.setColumns(2);
-		
-		field_4 = new JTextField();
-		field_4.setEditable(false);
-		field_4.setVisible(false);
-		panelPalavra.add(field_4);
-		field_4.setColumns(2);
-		
-		field_5 = new JTextField();
-		field_5.setEditable(false);
-		field_5.setVisible(false);
-		panelPalavra.add(field_5);
-		field_5.setColumns(2);
-		
-		field_6 = new JTextField();
-		field_6.setEditable(false);
-		field_6.setVisible(false);
-		panelPalavra.add(field_6);
-		field_6.setColumns(2);
-		
-		field_7 = new JTextField();
-		field_7.setEditable(false);
-		field_7.setVisible(false);
-		panelPalavra.add(field_7);
-		field_7.setColumns(2);
-		
-		field_8 = new JTextField();
-		field_8.setEditable(false);
-		field_8.setVisible(false);
-		panelPalavra.add(field_8);
-		field_8.setColumns(2);
-		
-		field_9 = new JTextField();
-		field_9.setEditable(false);
-		field_9.setVisible(false);
-		panelPalavra.add(field_9);
-		field_9.setColumns(2);
-		
-		field_10 = new JTextField();
-		field_10.setEditable(false);
-		field_10.setVisible(false);
-		panelPalavra.add(field_10);
-		field_10.setColumns(2);
-		
-		field_11 = new JTextField();
-		field_11.setEditable(false);
-		field_11.setVisible(false);
-		panelPalavra.add(field_11);
-		field_11.setColumns(2);
+		field_1.setColumns(30);
 		
 				
 		JPanel panelTeclado = new JPanel();
@@ -142,6 +68,8 @@ public class TelaPrincipal extends JFrame {
 		JButton btnB = new JButton("B");
 		btnB.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				String letra = btnB.getText();
+				clickLetra(letra);
 			}
 		});
 		panelAI.add(btnB);
@@ -149,6 +77,8 @@ public class TelaPrincipal extends JFrame {
 		JButton btnC = new JButton("C");
 		btnC.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				String letra = btnC.getText();
+				clickLetra(letra);
 			}
 		});
 		panelAI.add(btnC);
@@ -156,6 +86,8 @@ public class TelaPrincipal extends JFrame {
 		JButton btnD = new JButton("D");
 		btnD.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				String letra = btnD.getText();
+				clickLetra(letra);
 			}
 		});
 		panelAI.add(btnD);
@@ -163,6 +95,8 @@ public class TelaPrincipal extends JFrame {
 		JButton btnE = new JButton("E");
 		btnE.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				String letra = btnE.getText();
+				clickLetra(letra);
 			}
 		});
 		panelAI.add(btnE);
@@ -170,6 +104,8 @@ public class TelaPrincipal extends JFrame {
 		JButton btnF = new JButton("F");
 		btnF.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				String letra = btnF.getText();
+				clickLetra(letra);
 			}
 		});
 		panelAI.add(btnF);
@@ -177,6 +113,8 @@ public class TelaPrincipal extends JFrame {
 		JButton btnG = new JButton("G");
 		btnG.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				String letra = btnG.getText();
+				clickLetra(letra);
 			}
 		});
 		panelAI.add(btnG);
@@ -184,6 +122,8 @@ public class TelaPrincipal extends JFrame {
 		JButton btnH = new JButton("H");
 		btnH.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				String letra = btnH.getText();
+				clickLetra(letra);
 			}
 		});
 		panelAI.add(btnH);
@@ -191,6 +131,8 @@ public class TelaPrincipal extends JFrame {
 		JButton btnI = new JButton("I");
 		btnI.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				String letra = btnF.getText();
+				clickLetra(letra);
 			}
 		});
 		panelAI.add(btnI);
@@ -201,6 +143,8 @@ public class TelaPrincipal extends JFrame {
 		JButton btnJ = new JButton("J");
 		btnJ.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				String letra = btnJ.getText();
+				clickLetra(letra);
 			}
 		});
 		panelIQ.add(btnJ);
@@ -208,6 +152,8 @@ public class TelaPrincipal extends JFrame {
 		JButton btnK = new JButton("K");
 		btnK.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				String letra = btnK.getText();
+				clickLetra(letra);
 			}
 		});
 		panelIQ.add(btnK);
@@ -215,6 +161,8 @@ public class TelaPrincipal extends JFrame {
 		JButton btnL = new JButton("L");
 		btnL.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				String letra = btnL.getText();
+				clickLetra(letra);
 			}
 		});
 		panelIQ.add(btnL);
@@ -222,6 +170,8 @@ public class TelaPrincipal extends JFrame {
 		JButton btnM = new JButton("M");
 		btnM.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				String letra = btnM.getText();
+				clickLetra(letra);
 			}
 		});
 		panelIQ.add(btnM);
@@ -229,6 +179,8 @@ public class TelaPrincipal extends JFrame {
 		JButton btnN = new JButton("N");
 		btnN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				String letra = btnN.getText();
+				clickLetra(letra);
 			}
 		});
 		panelIQ.add(btnN);
@@ -236,6 +188,8 @@ public class TelaPrincipal extends JFrame {
 		JButton btnO = new JButton("O");
 		btnO.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				String letra = btnO.getText();
+				clickLetra(letra);
 			}
 		});
 		panelIQ.add(btnO);
@@ -243,6 +197,8 @@ public class TelaPrincipal extends JFrame {
 		JButton btnP = new JButton("P");
 		btnP.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				String letra = btnP.getText();
+				clickLetra(letra);
 			}
 		});
 		panelIQ.add(btnP);
@@ -250,6 +206,8 @@ public class TelaPrincipal extends JFrame {
 		JButton btnQ = new JButton("Q");
 		btnQ.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				String letra = btnQ.getText();
+				clickLetra(letra);
 			}
 		});
 		panelIQ.add(btnQ);
@@ -260,6 +218,8 @@ public class TelaPrincipal extends JFrame {
 		JButton btnR = new JButton("R");
 		btnR.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				String letra = btnR.getText();
+				clickLetra(letra);
 			}
 		});
 		panelRZ.add(btnR);
@@ -267,6 +227,8 @@ public class TelaPrincipal extends JFrame {
 		JButton btnS = new JButton("S");
 		btnS.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				String letra = btnS.getText();
+				clickLetra(letra);
 			}
 		});
 		panelRZ.add(btnS);
@@ -274,6 +236,8 @@ public class TelaPrincipal extends JFrame {
 		JButton btnT = new JButton("T");
 		btnT.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				String letra = btnT.getText();
+				clickLetra(letra);
 			}
 		});
 		panelRZ.add(btnT);
@@ -281,6 +245,8 @@ public class TelaPrincipal extends JFrame {
 		JButton btnU = new JButton("U");
 		btnU.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				String letra = btnU.getText();
+				clickLetra(letra);
 			}
 		});
 		panelRZ.add(btnU);
@@ -288,6 +254,8 @@ public class TelaPrincipal extends JFrame {
 		JButton btnV = new JButton("V");
 		btnV.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				String letra = btnV.getText();
+				clickLetra(letra);
 			}
 		});
 		panelRZ.add(btnV);
@@ -295,6 +263,8 @@ public class TelaPrincipal extends JFrame {
 		JButton btnW = new JButton("W");
 		btnW.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				String letra = btnW.getText();
+				clickLetra(letra);
 			}
 		});
 		panelRZ.add(btnW);
@@ -302,6 +272,8 @@ public class TelaPrincipal extends JFrame {
 		JButton btnX = new JButton("X");
 		btnX.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				String letra = btnX.getText();
+				clickLetra(letra);
 			}
 		});
 		panelRZ.add(btnX);
@@ -309,6 +281,8 @@ public class TelaPrincipal extends JFrame {
 		JButton btnY = new JButton("Y");
 		btnY.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				String letra = btnY.getText();
+				clickLetra(letra);
 			}
 		});
 		panelRZ.add(btnY);
@@ -316,6 +290,8 @@ public class TelaPrincipal extends JFrame {
 		JButton btnZ = new JButton("Z");
 		btnZ.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				String letra = btnZ.getText();
+				clickLetra(letra);
 			}
 		});
 		panelRZ.add(btnZ);
@@ -367,20 +343,39 @@ public class TelaPrincipal extends JFrame {
 		
 		for (int i = 0; i < palavraForca.length(); i++) {
 			if (palavraForca.charAt(i)==(letra.charAt(0))) {
-//				panelPalavra.getComponent(i).;				
+				atribuirLetra(i, letra);
 			}
 		}
 				
 	}
 	
+	private void atribuirLetra(int i, String letra) {
+		StringBuilder palavra = new StringBuilder(field_1.getText());
+		int auxiliar = 0;
+		for (int j = 0; j < palavra.length(); j++) {
+			
+			if (palavra.charAt(j)=='*') {
+				auxiliar++;							
+			}
+			if (auxiliar == i-1) {
+				palavra.setCharAt(j, letra.charAt(0));
+			}
+		}
+		field_1.setText(palavra.toString());
+		JOptionPane.showMessageDialog(null, letra);
+		
+	}
+
 	private void atribuirPalavra() {
-		palavraForca = "Romario";		
+		palavraForca = "ROMARIO";		
 	}
 	
 	private void determinarTamanho() {
 		
-		for (int i = 0; i < palavraForca.length(); i++) {			
-			panelPalavra.getComponent(i).setVisible(true);			
+		for (int i = 0; i < palavraForca.length(); i++) {
+			String palavra = field_1.getText();
+			palavra+=" *  ";
+			field_1.setText(palavra);		
 		}	
 	}
 	
