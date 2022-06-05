@@ -442,7 +442,7 @@ public class TelaPrincipal extends JFrame {
 			desenharForca(MetodosForca.getContadorErros());
 		}
 		if (letrasFaltam == 0) {
-			finalizarJogo("Você ganhou! Escolha uma opção!","Tela da vitória");
+			finalizarJogo("Você acertou! Escolha uma opção!","Tela da vitória");
 		}
 	}	
 
@@ -450,13 +450,15 @@ public class TelaPrincipal extends JFrame {
 		Object[] options = { " Continuar Jogando ", " Fechar o jogo " };
 		int opcao = JOptionPane.showOptionDialog(null, mensagem, titulo,
 				JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, options, options[0]);
-		System.out.println(opcao);
 		switch (opcao) {
 		case 0:
 			this.dispose();
 			new TelaPrincipal();
 			break;
 		case 1:
+			this.dispose();
+			break;
+		case -1:
 			this.dispose();
 			break;
 		default:
@@ -485,7 +487,7 @@ public class TelaPrincipal extends JFrame {
 			break;
 		case 6:
 			pernaDir.setVisible(true);
-			finalizarJogo("Você perdeu! A palavra era: "+MetodosForca.getPalavraForca()[0]+"\nEscolha uma opção", "Tela da vergonha");
+			finalizarJogo("Você perdeu! A palavra era: "+MetodosForca.getPalavraForca()[1]+"\nEscolha uma opção", "Tela da vergonha");
 			break;
 		default:
 			break;
