@@ -25,12 +25,12 @@ public class TelaPrincipal extends JFrame {
 	private JLabel pernaDir;
 	private JLabel bracoEsq;
 	private JLabel bracoDir;
-	private String palavraForca;
-	private int contadorErros;
+
+	
 	
 	public TelaPrincipal() {
 		
-		atribuirPalavra();
+		MetodosForca.atribuirPalavra();
 		initComponents();
 		determinarTamanho();
 		
@@ -379,31 +379,32 @@ public class TelaPrincipal extends JFrame {
 	}
 
 	private void clickLetra(String letra) {
-		boolean acertou = false;
+		boolean errou = true;
 		int letrasFaltam = -1;
-		for (int i = 0; i < palavraForca.length(); i++) {
-			if (palavraForca.charAt(i)==(letra.charAt(0))) {
-				letrasFaltam = atribuirLetra(i, letra);
-				acertou = true;
+		for (int i = 0; i < MetodosForca.getPalavraForca()[1].length(); i++) {
+			if (MetodosForca.getPalavraForca()[1].charAt(i) == (letra.charAt(0))) {
+				letrasFaltam = MetodosForca.atribuirLetra(i, MetodosForca.getPalavraForca()[1].charAt(i),field_1);
+				errou = false;
 			}
 		}
-		if(!acertou) {
-			contadorErros++;
-			desenharForca(contadorErros);
+		if (errou) {
+			MetodosForca.setContadorErros(MetodosForca.getContadorErros()+1);
+			desenharForca(MetodosForca.getContadorErros());
 		}
 		if (letrasFaltam == 0) {
-			ganhouJogo();
+			finalizarJogo("Você ganhou! Escolha uma opção!","Tela da vitória");
 		}
-	}
-	
-	private void ganhouJogo() {
-		Object[] options = { " Continuar Jogando ", " Fechar o jogo " };			
-		int opcao = JOptionPane.showOptionDialog(null, "Você ganhou! Escolha uma opção!", "Tela da vitória",JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE,null, options, options[0]);
-		System.out.println(opcao);		
+	}	
+
+	private void finalizarJogo(String mensagem, String titulo) {
+		Object[] options = { " Continuar Jogando ", " Fechar o jogo " };
+		int opcao = JOptionPane.showOptionDialog(null, mensagem, titulo,
+				JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[0]);
+		System.out.println(opcao);
 		switch (opcao) {
 		case 0:
 			this.dispose();
-			new TelaPrincipal();				
+			new TelaPrincipal();
 			break;
 		case 1:
 			this.dispose();
@@ -412,9 +413,9 @@ public class TelaPrincipal extends JFrame {
 			break;
 		}		
 	}
-
+	
 	private void desenharForca(int erros) {
-		
+
 		switch (erros) {
 		case 1:
 			cabeca.setVisible(true);
@@ -432,71 +433,21 @@ public class TelaPrincipal extends JFrame {
 			pernaEsq.setVisible(true);
 			break;
 		case 6:
-			pernaDir.setVisible(true);			
-			Object[] options = { " Continuar Jogando ", " Fechar o jogo " };			
-			int opcao = JOptionPane.showOptionDialog(null, "Você perdeu! Escolha uma opção", "Tela da vergonha",JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE,null, options, options[0]);
-			System.out.println(opcao);
-			
-			switch (opcao) {
-			case 0:
-				this.dispose();
-				new TelaPrincipal();				
-				break;
-			case 1:
-				this.dispose();
-				break;
-			default:
-				break;
-			}
-			
+			pernaDir.setVisible(true);
+			finalizarJogo("Você perdeu! Escolha uma opção", "Tela da vergonha");
 			break;
 		default:
 			break;
 		}
 	}
 
-	private int atribuirLetra(int i, String letra) {
-		StringBuilder palavra = new StringBuilder(field_1.getText());
-		int contadorPosicao = 0;
-		int letrasFaltam = 0;
-		boolean alterado = false;
-		for (int j = 0; j < palavra.length(); j++) {			
-			if (palavra.charAt(j)!=' ') {
-				contadorPosicao++;							
-			}			
-			if (contadorPosicao-1 == (i) && !alterado) {
-				palavra.setCharAt(j, letra.charAt(0));
-				alterado = true;
-			}
-		}
-		for (int j = 0; j < palavra.length(); j++) {
-			if (palavra.charAt(j)=='*') {
-				letrasFaltam++;				
-			}			
-		}
-		field_1.setText(palavra.toString());
-		return letrasFaltam;
-	}
-
-	private void atribuirPalavra() {
-		palavraForca = "ROMARIO";		
-	}
-	
 	private void determinarTamanho() {
-		
-		String palavra = field_1.getText();
-		for (int i = 0; i < palavraForca.length(); i++) {
-			palavra+="  *  ";
-		}	
-		field_1.setText(palavra);		
-	}
-	
 
-	
-	
-	
-	
-	
-	
-	
+		String palavra = field_1.getText();
+		for (int i = 0; i < MetodosForca.getPalavraForca()[1].length(); i++) {
+			palavra += "  *  ";
+		}
+		field_1.setText(palavra);
+	}
+
 }
