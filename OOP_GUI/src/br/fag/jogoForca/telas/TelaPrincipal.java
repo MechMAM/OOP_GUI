@@ -2,6 +2,7 @@ package br.fag.jogoForca.telas;
 
 import java.awt.BorderLayout;
 import java.awt.Font;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -14,6 +15,13 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 import br.fag.calculadora.gui.VerticalFlowLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.SystemColor;
+import javax.swing.UIManager;
+import javax.swing.border.SoftBevelBorder;
+import javax.swing.border.BevelBorder;
+import javax.swing.border.LineBorder;
 
 @SuppressWarnings("serial")
 public class TelaPrincipal extends JFrame {
@@ -25,11 +33,12 @@ public class TelaPrincipal extends JFrame {
 	private JLabel pernaDir;
 	private JLabel bracoEsq;
 	private JLabel bracoDir;
-
-	
+	private JLabel Dica;	
 	
 	public TelaPrincipal() {
+		getContentPane().setBackground(Color.WHITE);
 		
+		setTitle("Jogo da Forca");		
 		MetodosForca.atribuirPalavra();
 		initComponents();
 		determinarTamanho();
@@ -41,13 +50,19 @@ public class TelaPrincipal extends JFrame {
 		getContentPane().setLayout(new BorderLayout(0, 0));
 		
 		JPanel panelLetras = new JPanel();
+		panelLetras.setBackground(UIManager.getColor("InternalFrame.activeTitleGradient"));
 		getContentPane().add(panelLetras, BorderLayout.SOUTH);
 		panelLetras.setLayout(new BorderLayout(0, 0));
 		
 		JPanel panelPalavra = new JPanel();
+		panelPalavra.setBorder(new LineBorder(new Color(0, 120, 215), 1, true));
+		panelPalavra.setBackground(UIManager.getColor("InternalFrame.activeTitleBackground"));
 		panelLetras.add(panelPalavra, BorderLayout.NORTH);
 		
 		field_1 = new JTextField();
+		field_1.setBorder(new LineBorder(UIManager.getColor("InternalFrame.borderDarkShadow"), 1, true));
+		field_1.setForeground(Color.DARK_GRAY);
+		field_1.setBackground(Color.WHITE);
 		field_1.setHorizontalAlignment(SwingConstants.CENTER);
 		field_1.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		field_1.setEditable(false);
@@ -56,6 +71,7 @@ public class TelaPrincipal extends JFrame {
 		
 				
 		JPanel panelTeclado = new JPanel();
+		panelTeclado.setBackground(UIManager.getColor("InternalFrame.activeTitleGradient"));
 		panelLetras.add(panelTeclado);
 		panelTeclado.setLayout(new VerticalFlowLayout());
 
@@ -333,49 +349,83 @@ public class TelaPrincipal extends JFrame {
 		getContentPane().add(panelNorte, BorderLayout.NORTH);
 		
 		JPanel panelForca = new JPanel();
+		panelForca.setBorder(new LineBorder(new Color(0, 120, 215), 1, true));
+		panelForca.setBackground(Color.WHITE);
 		getContentPane().add(panelForca, BorderLayout.CENTER);
 		panelForca.setLayout(null);
 		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBackground(Color.BLACK);
+		panel_1.setBounds(71, 293, 91, 10);
+		panelForca.add(panel_1);
+		
 		cabeca = new JLabel("O");
-		cabeca.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		cabeca.setBounds(244, 135, 27, 28);
+		cabeca.setFont(new Font("Tahoma", Font.PLAIN, 40));
+		cabeca.setBounds(239, 130, 28, 44);
 		panelForca.add(cabeca);
 		cabeca.setVisible(false);
 		
 		tronco = new JLabel("|");
-		tronco.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		tronco.setBounds(249, 157, 15, 37);
+		tronco.setFont(new Font("Tahoma", Font.PLAIN, 40));
+		tronco.setBounds(246, 157, 15, 56);
 		panelForca.add(tronco);
 		tronco.setVisible(false);
 		
 		pernaEsq = new JLabel("/");
-		pernaEsq.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		pernaEsq.setBounds(244, 190, 15, 28);
+		pernaEsq.setFont(new Font("Tahoma", Font.PLAIN, 40));
+		pernaEsq.setBounds(236, 207, 19, 37);
 		panelForca.add(pernaEsq);
 		pernaEsq.setVisible(false);
 		
 		pernaDir = new JLabel("\\");
-		pernaDir.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		pernaDir.setBounds(253, 190, 15, 28);
+		pernaDir.setFont(new Font("Tahoma", Font.PLAIN, 40));
+		pernaDir.setBounds(256, 207, 28, 37);
 		panelForca.add(pernaDir);
 		pernaDir.setVisible(false);
 		
 		bracoEsq = new JLabel("/");
-		bracoEsq.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		bracoEsq.setBounds(244, 161, 15, 28);
+		bracoEsq.setFont(new Font("Tahoma", Font.PLAIN, 40));
+		bracoEsq.setBounds(236, 163, 15, 44);
 		panelForca.add(bracoEsq);
 		bracoEsq.setVisible(false);
 		
 		bracoDir = new JLabel("\\");
-		bracoDir.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		bracoDir.setBounds(254, 161, 15, 28);
+		bracoDir.setFont(new Font("Tahoma", Font.PLAIN, 40));
+		bracoDir.setBounds(255, 157, 19, 56);
 		panelForca.add(bracoDir);
+		
+		Dica = new JLabel("DICA");
+		Dica.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		Dica.setBounds(412, 103, 329, 49);
+		Dica.setVisible(false);
+		panelForca.add(Dica);
+		
+		JPanel panel = new JPanel();
+		panel.setBackground(Color.DARK_GRAY);
+		panel.setBounds(109, 68, 10, 235);
+		panelForca.add(panel);
+		
+		JPanel panel_2 = new JPanel();
+		panel_2.setBackground(Color.DARK_GRAY);
+		panel_2.setBounds(109, 68, 150, 10);
+		panelForca.add(panel_2);
+		
+		JPanel panel_3 = new JPanel();
+		panel_3.setBackground(Color.ORANGE);
+		panel_3.setBounds(250, 68, 5, 65);
+		panelForca.add(panel_3);
 		bracoDir.setVisible(false);
 		
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-//		setLocationRelativeTo(null);
 		setSize(800, 600);
 		setVisible(true);
+		centralizarTela();
+	}
+	
+	public void centralizarTela() {
+		Dimension ds = Toolkit.getDefaultToolkit().getScreenSize();
+		Dimension dw = getSize();
+		setLocation((ds.width - dw.width) / 2, (ds.height - dw.height) / 2);
 	}
 
 	private void clickLetra(String letra) {
@@ -399,7 +449,7 @@ public class TelaPrincipal extends JFrame {
 	private void finalizarJogo(String mensagem, String titulo) {
 		Object[] options = { " Continuar Jogando ", " Fechar o jogo " };
 		int opcao = JOptionPane.showOptionDialog(null, mensagem, titulo,
-				JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[0]);
+				JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, options, options[0]);
 		System.out.println(opcao);
 		switch (opcao) {
 		case 0:
@@ -425,6 +475,7 @@ public class TelaPrincipal extends JFrame {
 			break;
 		case 3:
 			bracoEsq.setVisible(true);
+			MetodosForca.exibirDica(Dica);
 			break;
 		case 4:
 			bracoDir.setVisible(true);
@@ -434,7 +485,7 @@ public class TelaPrincipal extends JFrame {
 			break;
 		case 6:
 			pernaDir.setVisible(true);
-			finalizarJogo("Você perdeu! Escolha uma opção", "Tela da vergonha");
+			finalizarJogo("Você perdeu! A palavra era: "+MetodosForca.getPalavraForca()[0]+"\nEscolha uma opção", "Tela da vergonha");
 			break;
 		default:
 			break;
@@ -442,12 +493,10 @@ public class TelaPrincipal extends JFrame {
 	}
 
 	private void determinarTamanho() {
-
 		String palavra = field_1.getText();
 		for (int i = 0; i < MetodosForca.getPalavraForca()[1].length(); i++) {
 			palavra += "  *  ";
 		}
 		field_1.setText(palavra);
 	}
-
 }

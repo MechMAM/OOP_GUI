@@ -2,6 +2,7 @@ package br.fag.jogoForca.telas;
 
 import java.util.Random;
 
+import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 import br.fag.jogoForca.dados.ManipularPlanilha;
@@ -50,7 +51,7 @@ public class MetodosForca {
 	}
 	
 	public static void atribuirPalavra() {
-		
+		contadorErros=0;
 		int linha = randomizar.nextInt(1, 151);
 		while (Forca.getPalavrasSorteadas().contains(linha)) {
 			linha = randomizar.nextInt(1, 151);
@@ -59,7 +60,11 @@ public class MetodosForca {
 		
 		for (int i = 0; i < palavraForca.length; i++) {
 			palavraForca[i] = ManipularPlanilha.getDados()[linha][i];			
-		}
-		
+		}		
+	}
+	
+	public static void exibirDica(JLabel dica) {
+		dica.setText("Dica: "+palavraForca[2]);
+		dica.setVisible(true);		
 	}
 }
