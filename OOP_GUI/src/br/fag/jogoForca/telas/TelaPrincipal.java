@@ -38,17 +38,16 @@ public class TelaPrincipal extends JFrame {
 	private JLabel Dica;	
 	
 	public TelaPrincipal() {
-		getContentPane().setBackground(Color.WHITE);
-		
-		setTitle("Jogo da Forca");		
 		MetodosForca.atribuirPalavra();
 		initComponents();
 		determinarTamanho();
 	}
 
 	private void initComponents() {
+		setTitle("Jogo da Forca");		
 		setResizable(false);
 		getContentPane().setLayout(new BorderLayout(0, 0));
+		getContentPane().setBackground(Color.WHITE);		
 		
 		JPanel panelLetras = new JPanel();
 		panelLetras.setBackground(UIManager.getColor("InternalFrame.activeTitleGradient"));
