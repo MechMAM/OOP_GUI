@@ -52,9 +52,9 @@ public class MetodosForca {
 	
 	public static void atribuirPalavra() {
 		contadorErros=0;
-		int linha = randomizar.nextInt(1, 151);
-		while (Forca.getPalavrasSorteadas().contains(linha)) {
-			linha = randomizar.nextInt(1, 151);
+		int linha = randomizar.nextInt(150);
+		while (Forca.getPalavrasSorteadas().contains(linha) && linha == 0) {
+			linha = randomizar.nextInt(150);
 		}
 		Forca.getPalavrasSorteadas().add(linha);
 		

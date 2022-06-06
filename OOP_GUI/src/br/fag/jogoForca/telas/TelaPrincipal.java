@@ -15,6 +15,8 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 import br.fag.calculadora.gui.VerticalFlowLayout;
+import br.fag.jogoForca.main.Forca;
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.SystemColor;
@@ -42,7 +44,6 @@ public class TelaPrincipal extends JFrame {
 		MetodosForca.atribuirPalavra();
 		initComponents();
 		determinarTamanho();
-		
 	}
 
 	private void initComponents() {

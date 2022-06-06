@@ -16,10 +16,10 @@ public class ManipularPlanilha {
 
 	public static void lerPlanilha() {
 		try {
-			Workbook workbook = Workbook.getWorkbook(new File("./OOP_GUI/src/br/fag/jogoForca/dados/palavras.xls"));
+			Workbook workbook = Workbook.getWorkbook(new File("./src/br/fag/jogoForca/dados/palavras.xls"));
 			Sheet sheet = workbook.getSheet(0);
 
-			File arquivo = new File("./OOP_GUI/src/br/fag/jogoForca/dados/palavras.xls");
+			File arquivo = new File("./src/br/fag/jogoForca/dados/palavras.xls");
 			FileReader leitura = new FileReader(arquivo);;
 			BufferedReader ler = new BufferedReader(leitura);
 
